@@ -39,7 +39,7 @@ function App() {
         className="absolute inset-0 w-full h-full object-cover"
         style={{ pointerEvents: 'none' }} // Prevent the video from capturing pointer events
       >
-        <source src={`${process.env.PUBLIC_URL}/vid.mp4`} type="video/mp4" />
+        <source src={`${process.env.PUBLIC_URL}/vid1.mp4`} type="video/mp4" />
       </video>
       <button 
         onClick={toggleMute}
