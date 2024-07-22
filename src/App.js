@@ -57,10 +57,10 @@ function App() {
       </button>
       <div className="absolute top-5 right-5 md:top-7 md:right-7 flex flex-col items-center z-10">
         <div className="flex flex-row">
-          <a href="https://x.com/" className="p-1 md:p-2">
+          <a href="https://x.com/LIBERTYDOGSOL" className="p-1 md:p-2">
             <img src={Xlogo} alt="Xlogo" className="w-10 h-10 md:w-12 md:h-12 rounded-md" />
           </a>
-          <a href="https://t.me/" className="p-1 md:p-2">
+          <a href="https://t.me/LIBERTYDOGSOL" className="p-1 md:p-2">
             <img src={TG} alt="Tg logo" className="w-10 h-10 md:w-12 md:h-12" />
           </a>
         </div>
