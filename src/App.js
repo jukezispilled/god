@@ -15,7 +15,7 @@ function App() {
   const videoRef = useRef(null);
 
   const handleCopy = () => {
-    navigator.clipboard.writeText('ASGpJqdy7rR952U5wxYAhQDXQyiBvWy8eSQ7sZXZpump');
+    navigator.clipboard.writeText('updated...');
     setCopied(true);
     setTimeout(() => setCopied(false), 2000);
   };
@@ -91,7 +91,7 @@ function App() {
             {copied ? 'Copied!' : <CopyIcon />}
           </button>
           <div className="text-sm md:text-xl overflow-x-auto whitespace-nowrap font-custom">
-          ASGpJqdy7rR952U5wxYAhQDXQyiBvWy8eSQ7sZXZpump
+          Not live yet...
           </div>
         </div>
       </motion.div>
