@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import { motion } from 'framer-motion';
 import Xlogo from "./XLogo.jpg";
 import TG from "./TG.png";
@@ -11,6 +11,8 @@ const CopyIcon = () => (
 
 function App() {
   const [copied, setCopied] = useState(false);
+  const [isMuted, setIsMuted] = useState(true);
+  const videoRef = useRef(null);
 
   const handleCopy = () => {
     navigator.clipboard.writeText('updating...');
@@ -18,11 +20,28 @@ function App() {
     setTimeout(() => setCopied(false), 2000);
   };
 
+  const toggleSound = () => {
+    const video = videoRef.current;
+    if (video) {
+      video.muted = !video.muted;
+      setIsMuted(video.muted);
+    }
+  };
+
   return (
     <div className="relative h-screen w-screen overflow-hidden flex justify-center items-center">
-      <video autoPlay muted loop className="absolute inset-0 w-full h-full object-cover">
+      <video ref={videoRef} autoPlay muted loop className="absolute inset-0 w-full h-full object-cover">
         <source src={`${process.env.PUBLIC_URL}/vid.mp4`} type="video/mp4" />
       </video>
+      <button onClick={toggleSound} className="absolute top-5 left-5 md:top-7 md:left-7 z-10 p-2 bg-white rounded-full">
+        {isMuted ? <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="size-8">
+          <path strokeLinecap="round" strokeLinejoin="round" d="M17.25 9.75 19.5 12m0 0 2.25 2.25M19.5 12l2.25-2.25M19.5 12l-2.25 2.25m-10.5-6 4.72-4.72a.75.75 0 0 1 1.28.53v15.88a.75.75 0 0 1-1.28.53l-4.72-4.72H4.51c-.88 0-1.704-.507-1.938-1.354A9.009 9.009 0 0 1 2.25 12c0-.83.112-1.633.322-2.396C2.806 8.756 3.63 8.25 4.51 8.25H6.75Z" />
+        </svg>
+        : <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="size-8">
+          <path strokeLinecap="round" strokeLinejoin="round" d="M19.114 5.636a9 9 0 0 1 0 12.728M16.463 8.288a5.25 5.25 0 0 1 0 7.424M6.75 8.25l4.72-4.72a.75.75 0 0 1 1.28.53v15.88a.75.75 0 0 1-1.28.53l-4.72-4.72H4.51c-.88 0-1.704-.507-1.938-1.354A9.009 9.009 0 0 1 2.25 12c0-.83.112-1.633.322-2.396C2.806 8.756 3.63 8.25 4.51 8.25H6.75Z" />
+        </svg>
+        }
+      </button>
       <div className="absolute top-5 right-5 md:top-7 md:right-7 flex flex-col items-center z-10">
         <div className="flex flex-row">
           <a href="https://x.com/" className="p-1 md:p-2">
@@ -33,7 +52,7 @@ function App() {
           </a>
         </div>
       </div>
-      <img className="absolute bottom-[25%] md:bottom-[15%] w-[100%] md:w-[70%] md:hover:scale-105 transition ease-in-out duration-150 z-10" src="libhd.png" alt="libhd"/>
+      <img className="absolute bottom-[25%] md:bottom-[15%] w-[100%] md:w-[70%] md:hover:scale-105 transition ease-in-out duration-150 z-10" src="libhd.png" alt="libhd" />
       <div className="absolute inset-0 flex flex-col justify-center items-center">
         <div className="flex justify-center items-center w-[60%] md:w-[30%] -mt-[10%]">
           <motion.img
