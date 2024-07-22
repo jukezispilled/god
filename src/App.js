@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import Xlogo from "./XLogo.jpg";
 import TG from "./TG.png";
-import bg from './b.jpg';
 
 const CopyIcon = () => (
   <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="size-6">
@@ -20,53 +19,50 @@ function App() {
   };
 
   return (
-    <div className="h-screen w-screen flex justify-center items-center bg-cover bg-center" style={{ backgroundImage: `url(${bg})` }}>
-        <div className="absolute top-5 right-5 md:top-7 md:right-7 flex flex-col items-center z-10">
-          <div className="flex flex-row">
-            <a 
-              href="https://x.com/" 
-              className="p-1 md:p-2"
-            >
-              <img src={Xlogo} alt="Xlogo" className="w-10 h-10 md:w-12 md:h-12 rounded-md" />
-            </a>
-            <a 
-              href="https://t.me/" 
-              className="p-1 md:p-2"
-            >
-              <img src={TG} alt="Tg logo" className="w-10 h-10 md:w-12 md:h-12" />
-            </a>
+    <div className="relative h-screen w-screen overflow-hidden flex justify-center items-center">
+      <video autoPlay muted loop className="absolute inset-0 w-full h-full object-cover">
+        <source src={`${process.env.PUBLIC_URL}/vid.mp4`} type="video/mp4" />
+      </video>
+      <div className="absolute top-5 right-5 md:top-7 md:right-7 flex flex-col items-center z-10">
+        <div className="flex flex-row">
+          <a href="https://x.com/" className="p-1 md:p-2">
+            <img src={Xlogo} alt="Xlogo" className="w-10 h-10 md:w-12 md:h-12 rounded-md" />
+          </a>
+          <a href="https://t.me/" className="p-1 md:p-2">
+            <img src={TG} alt="Tg logo" className="w-10 h-10 md:w-12 md:h-12" />
+          </a>
+        </div>
+      </div>
+      <img className="absolute bottom-[25%] md:bottom-[15%] w-[100%] md:w-[70%] md:hover:scale-105 transition ease-in-out duration-150 z-10" src="libhd.png" alt="libhd"/>
+      <div className="absolute inset-0 flex flex-col justify-center items-center">
+        <div className="flex justify-center items-center w-[60%] md:w-[30%] -mt-[10%]">
+          <motion.img
+            whileHover={{ scale: 1.1, rotate: 5 }}
+            transition={{ type: 'spring', stiffness: 300 }}
+            src="dog.png"
+            alt="Tunes"
+            className="-mt-[7.5%] h-auto border-4 w-full border-blue-700 rounded-md"
+          />
+        </div>
+      </div>
+      <motion.div
+        className="absolute bottom-10 flex justify-center"
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ delay: 0.5, duration: 0.5 }}
+      >
+        <div className="flex flex-col sm:flex-row justify-center bg-slate-100 rounded-xl md:rounded-full z-10 items-center gap-1 md:gap-3 px-5 py-3 max-w-full border-2 border-blue-700">
+          <button
+            onClick={handleCopy}
+            className="text-sm bg-blue-700 md:hover:bg-vlue-500 transition duration-150 ease-in-out text-white py-2 px-4 rounded-full border-2 border-blue-700 z-10 whitespace-nowrap"
+          >
+            {copied ? 'Copied!' : <CopyIcon />}
+          </button>
+          <div className="text-xs md:text-xl overflow-x-auto whitespace-nowrap font-custom">
+            updating...
           </div>
         </div>
-        <img className='absolute bottom-[25%] md:bottom-[15%] w-[100%] md:w-[70%] md:hover:scale-105 transition ease-in-out duration-150 z-10' src="libhd.png"></img>
-        <div className="absolute inset-0 flex flex-col justify-center items-center">
-          <div className="flex justify-center items-center w-[60%] md:w-[30%] -mt-[10%]">
-            <motion.img
-              whileHover={{ scale: 1.1, rotate: 5 }}
-              transition={{ type: 'spring', stiffness: 300 }}
-              src="dog.png"
-              alt="Tunes"
-              className="-mt-[7.5%] h-auto border-4 w-full border-blue-700 rounded-md"
-            />
-          </div>
-        </div>
-        <motion.div 
-          className='absolute bottom-10 flex justify-center'
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.5, duration: 0.5 }}
-        >
-          <div className='flex flex-col sm:flex-row justify-center bg-slate-100 rounded-xl md:rounded-full z-10 items-center gap-1 md:gap-3 px-5 py-3 max-w-full border-2 border-blue-700'>
-            <button
-              onClick={handleCopy}
-              className="text-sm bg-blue-700 md:hover:bg-vlue-500 transition duration-150 ease-in-out text-white py-2 px-4 rounded-full border-2 border-blue-700 z-10 whitespace-nowrap"
-            >
-              {copied ? 'Copied!' : <CopyIcon />}
-            </button>
-            <div className='text-xs md:text-xl overflow-x-auto whitespace-nowrap font-custom'>
-              updating...
-            </div>
-          </div>
-        </motion.div>
+      </motion.div>
     </div>
   );
 }
