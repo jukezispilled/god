@@ -60,7 +60,7 @@ function App() {
           <a href="https://x.com/LIBERTYDOGSOL" className="p-1 md:p-2">
             <img src={Xlogo} alt="Xlogo" className="w-10 h-10 md:w-12 md:h-12 rounded-md" />
           </a>
-          <a href="https://t.me/LIBERTYDOGSOL" className="p-1 md:p-2">
+          <a href="https://t.me/LIBERTYONSOLANA" className="p-1 md:p-2">
             <img src={TG} alt="Tg logo" className="w-10 h-10 md:w-12 md:h-12" />
           </a>
         </div>
