@@ -90,7 +90,7 @@ function App() {
           >
             {copied ? 'Copied!' : <CopyIcon />}
           </button>
-          <div className="text-xs md:text-xl overflow-x-auto whitespace-nowrap font-custom">
+          <div className="text-sm md:text-xl overflow-x-auto whitespace-nowrap font-custom">
             updating...
           </div>
         </div>
