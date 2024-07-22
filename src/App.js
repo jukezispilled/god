@@ -73,7 +73,7 @@ function App() {
             transition={{ type: 'spring', stiffness: 300 }}
             src="dog.png"
             alt="Tunes"
-            className="-mt-[7.5%] h-auto border-4 w-full border-blue-700 rounded-md"
+            className="-mt-[7.5%] h-auto border-4 w-full border-blue-800 rounded-md"
           />
         </div>
       </div>
@@ -83,10 +83,10 @@ function App() {
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 0.5, duration: 0.5 }}
       >
-        <div className="flex flex-col sm:flex-row justify-center bg-slate-100 rounded-xl md:rounded-full z-10 items-center gap-1 md:gap-3 px-5 py-3 max-w-full border-2 border-blue-700">
+        <div className="flex flex-col sm:flex-row justify-center bg-slate-100 rounded-xl md:rounded-full z-10 items-center gap-1 md:gap-3 px-5 py-3 max-w-full border-2 border-blue-800">
           <button
             onClick={handleCopy}
-            className="text-sm bg-blue-700 md:hover:bg-vlue-500 transition duration-150 ease-in-out text-white py-2 px-4 rounded-full border-2 border-blue-700 z-10 whitespace-nowrap"
+            className="text-sm bg-blue-800 md:hover:bg-vlue-500 transition duration-150 ease-in-out text-white py-2 px-4 rounded-full border-2 border-blue-800 z-10 whitespace-nowrap"
           >
             {copied ? 'Copied!' : <CopyIcon />}
           </button>
