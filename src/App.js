@@ -16,7 +16,7 @@ function App() {
   const videoRef = useRef(null);
 
   const handleCopy = () => {
-    navigator.clipboard.writeText('updating..');
+    navigator.clipboard.writeText('8XBGBQDHnnB1X2XgZsVqgnd3MPaAfqUGTQjZU3wSpump');
     setCopied(true);
     setTimeout(() => setCopied(false), 2000);
   };
@@ -85,7 +85,7 @@ function App() {
             CA
           </button>
           <div className="text-sm md:text-lg overflow-x-auto whitespace-nowrap font-custom">
-            updating..
+          8XBGBQDHnnB1X2XgZsVqgnd3MPaAfqUGTQjZU3wSpump
           </div>
         </div>
       </motion.div>
