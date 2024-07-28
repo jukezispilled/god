@@ -65,7 +65,7 @@ function App() {
         <motion.img
           src={GodImage}
           alt="God Mode"
-          className="w-[45vw]"
+          className="w-[75vw] md:w-[45vw]"
           animate={{ y: [0, -20, 0] }}
           transition={{ repeat: Infinity, duration: 2, ease: "easeInOut" }}
         />
