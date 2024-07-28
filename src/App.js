@@ -2,6 +2,7 @@ import React, { useState, useRef } from 'react';
 import { motion } from 'framer-motion';
 import Xlogo from "./XLogo.jpg";
 import TG from "./TG.png";
+import GodImage from "./godd.png"; // Import the god.png image
 
 const CopyIcon = () => (
   <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="size-6">
@@ -15,7 +16,7 @@ function App() {
   const videoRef = useRef(null);
 
   const handleCopy = () => {
-    navigator.clipboard.writeText('updated...');
+    navigator.clipboard.writeText('updating..');
     setCopied(true);
     setTimeout(() => setCopied(false), 2000);
   };
@@ -30,6 +31,18 @@ function App() {
 
   return (
     <div className="relative h-screen w-screen overflow-hidden flex justify-center items-center">
+      <div className='absolute top-5 right-5 flex justify-center items-center z-10'>
+        <a href="https://x.com/" className=''>
+          <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" className='size-10 md:size-12 md:hover:scale-105 transition ease-in-out duration-150' fill="#FDE047" viewBox="0 0 50 50">
+            <path d="M 6.9199219 6 L 21.136719 26.726562 L 6.2285156 44 L 9.40625 44 L 22.544922 28.777344 L 32.986328 44 L 43 44 L 28.123047 22.3125 L 42.203125 6 L 39.027344 6 L 26.716797 20.261719 L 16.933594 6 L 6.9199219 6 z"></path>
+          </svg>
+        </a>
+        <a href="https://t.me/" className=''>
+          <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" className='size-10 md:size-12 md:hover:scale-105 transition ease-in-out duration-150' fill="#FDE047" viewBox="0 0 50 50">
+            <path d="M46.137,6.552c-0.75-0.636-1.928-0.727-3.146-0.238l-0.002,0C41.708,6.828,6.728,21.832,5.304,22.445	c-0.259,0.09-2.521,0.934-2.288,2.814c0.208,1.695,2.026,2.397,2.248,2.478l8.893,3.045c0.59,1.964,2.765,9.21,3.246,10.758	c0.3,0.965,0.789,2.233,1.646,2.494c0.752,0.29,1.5,0.025,1.984-0.355l5.437-5.043l8.777,6.845l0.209,0.125	c0.596,0.264,1.167,0.396,1.712,0.396c0.421,0,0.825-0.079,1.211-0.237c1.315-0.54,1.841-1.793,1.896-1.935l6.556-34.077	C47.231,7.933,46.675,7.007,46.137,6.552z M22,32l-3,8l-3-10l23-17L22,32z"></path>
+          </svg>
+        </a>
+      </div>
       <video
         ref={videoRef}
         autoPlay
@@ -39,59 +52,40 @@ function App() {
         className="absolute inset-0 w-full h-full object-cover"
         style={{ pointerEvents: 'none' }} // Prevent the video from capturing pointer events
       >
-        <source src={`${process.env.PUBLIC_URL}/vid1.mp4`} type="video/mp4" />
+        <source src={`${process.env.PUBLIC_URL}/viddd.mp4`} type="video/mp4" />
       </video>
-      <button 
-        onClick={toggleMute}
-        className="absolute top-5 left-5 bg-white p-2 rounded-full z-10"
+      
+      <motion.div
+        className="absolute flex justify-center"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 1 }}
+        style={{ top: '50%', left: '50%', transform: 'translate(-50%, -50%)' }}
       >
-        {muted ? (
-          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="size-8">
-            <path strokeLinecap="round" strokeLinejoin="round" d="M17.25 9.75 19.5 12m0 0 2.25 2.25M19.5 12l2.25-2.25M19.5 12l-2.25 2.25m-10.5-6 4.72-4.72a.75.75 0 0 1 1.28.53v15.88a.75.75 0 0 1-1.28.53l-4.72-4.72H4.51c-.88 0-1.704-.507-1.938-1.354A9.009 9.009 0 0 1 2.25 12c0-.83.112-1.633.322-2.396C2.806 8.756 3.63 8.25 4.51 8.25H6.75Z" />
-          </svg>        
-        ) : (
-          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="size-8">
-            <path strokeLinecap="round" strokeLinejoin="round" d="M19.114 5.636a9 9 0 0 1 0 12.728M16.463 8.288a5.25 5.25 0 0 1 0 7.424M6.75 8.25l4.72-4.72a.75.75 0 0 1 1.28.53v15.88a.75.75 0 0 1-1.28.53l-4.72-4.72H4.51c-.88 0-1.704-.507-1.938-1.354A9.009 9.009 0 0 1 2.25 12c0-.83.112-1.633.322-2.396C2.806 8.756 3.63 8.25 4.51 8.25H6.75Z" />
-          </svg>
-        )}
-      </button>
-      <div className="absolute top-5 right-5 md:top-7 md:right-7 flex flex-col items-center z-10">
-        <div className="flex flex-row">
-          <a href="https://x.com/LIBERTYDOGSOL" className="p-1 md:p-2">
-            <img src={Xlogo} alt="Xlogo" className="w-10 h-10 md:w-12 md:h-12 rounded-md" />
-          </a>
-          <a href="https://t.me/LIBERTYONSOLANA" className="p-1 md:p-2">
-            <img src={TG} alt="Tg logo" className="w-10 h-10 md:w-12 md:h-12" />
-          </a>
-        </div>
-      </div>
-      <img className="absolute bottom-[25%] md:bottom-[15%] w-[100%] md:w-[70%] md:hover:scale-105 transition ease-in-out duration-150 z-10" src="libhd.png" alt="libhd"/>
-      <div className="absolute inset-0 flex flex-col justify-center items-center">
-        <div className="flex justify-center items-center w-[60%] md:w-[30%] -mt-[10%]">
-          <motion.img
-            whileHover={{ scale: 1.1, rotate: 5 }}
-            transition={{ type: 'spring', stiffness: 300 }}
-            src="dog.png"
-            alt="Tunes"
-            className="-mt-[7.5%] h-auto border-4 w-full border-blue-800 rounded-md"
-          />
-        </div>
-      </div>
+        <motion.img
+          src={GodImage}
+          alt="God Mode"
+          className="w-[45vw]"
+          animate={{ y: [0, -20, 0] }}
+          transition={{ repeat: Infinity, duration: 2, ease: "easeInOut" }}
+        />
+      </motion.div>
+
       <motion.div
         className="absolute bottom-10 flex justify-center"
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 0.5, duration: 0.5 }}
       >
-        <div className="flex flex-col sm:flex-row justify-center bg-slate-100 rounded-xl md:rounded-full z-10 items-center gap-1 md:gap-3 px-5 py-3 max-w-full border-2 border-blue-800">
+        <div className="font-custom flex flex-col sm:flex-row justify-center bg-slate-100 rounded-xl md:rounded-full z-10 items-center gap-1 md:gap-3 px-5 py-3 max-w-full border-2 border-amber-800">
           <button
             onClick={handleCopy}
-            className="text-sm bg-blue-800 md:hover:bg-vlue-500 transition duration-150 ease-in-out text-white py-2 px-4 rounded-full border-2 border-blue-800 z-10 whitespace-nowrap"
+            className="text-sm md:text-xl font-bold bg-amber-500 md:hover:bg-vlue-500 transition duration-150 ease-in-out text-white py-2 px-4 rounded-full border-2 border-amber-800 z-10 whitespace-nowrap"
           >
-            {copied ? 'Copied!' : <CopyIcon />}
+            CA
           </button>
-          <div className="text-sm md:text-xl overflow-x-auto whitespace-nowrap font-custom">
-          Not live yet...
+          <div className="text-sm md:text-lg overflow-x-auto whitespace-nowrap font-custom">
+            updating..
           </div>
         </div>
       </motion.div>
